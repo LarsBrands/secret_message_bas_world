@@ -17,7 +17,10 @@ It also uses a small html interface to make the use of the script easier.
 # Setup
 
 - Open a terminal within the root of the repository
-- Run the following command to start a local build in php webserver: $ php -S localhost:8000 secret_message.php
+- Run the following command to start a local webserver through php
+```
+php -S localhost:8000 secret_message.php
+```
 - Open https://localhost:8000/ in a browser and encrypt away!
 
 ##  
@@ -33,9 +36,9 @@ The second solution is contained within the laravel project. It uses laravel 10.
 # Setup
 
 - Open a terminal within the root of the laravel project
-- Run the following command to install dependencies and start a local build in php webserver
+- Run the following command to install dependencies and start a local webserver through laravel
 ```
-$ composer install && php artisan serve
+composer install && php artisan serve
 ```
 - Open https://localhost:8000/ in a browser and encrypt away!
 
