@@ -33,7 +33,10 @@ The second solution is contained within the laravel project. It uses laravel 10.
 # Setup
 
 - Open a terminal within the root of the laravel project
-- Run the following command to start a local build in php webserver: $ php artisan migrate && php artisan serve
+- Run the following command to install dependencies and start a local build in php webserver
+```
+$ composer install && php artisan serve
+```
 - Open https://localhost:8000/ in a browser and encrypt away!
 
 ## Assignment
