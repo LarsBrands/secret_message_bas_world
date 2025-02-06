@@ -21,7 +21,7 @@ It also uses a small html interface to make the use of the script easier.
 ```
 php -S localhost:8000 secret_message.php
 ```
-- Open https://localhost:8000/ in a browser and encrypt away!
+- Open http://localhost:8000/ in a browser and encrypt away!
 
 ##  
 
@@ -40,7 +40,7 @@ The second solution is contained within the laravel project. It uses laravel 10.
 ```
 composer install && php artisan serve
 ```
-- Open https://localhost:8000/ in a browser and encrypt away!
+- Open http://localhost:8000/ in a browser and encrypt away!
 
 ## Assignment
 
