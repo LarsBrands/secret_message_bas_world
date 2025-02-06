@@ -38,6 +38,9 @@ class MessageController extends Controller
         $identifier = uniqid('msg_');
         $encryptionKey = base64_encode(random_bytes(16));
 
+        // Encrypt the recipient
+        $encryptedRecipient = Crypt::encryptString($validated['recipient']);
+
         // Encrypt the message text
         $encryptedText = Crypt::encryptString($validated['text']);
 
@@ -50,7 +53,7 @@ class MessageController extends Controller
         // Create message payload
         $messagePayload = [
             'identifier' => $identifier,
-            'recipient' => $validated['recipient'],
+            'recipient' => $encryptedRecipient,
             'text' => $encryptedText,
             'encryption_key' => $encryptionKey,
             'expires_at' => $expiry, // Null for "read-once"
@@ -109,6 +112,9 @@ class MessageController extends Controller
             return view('read-message', ['error' => 'Invalid decryption key']);
         }
 
+        // Decrypt the recipient
+        $decryptedRecipient = Crypt::decryptString($messageData['recipient']);
+
         // Decrypt the message text
         $decryptedText = Crypt::decryptString($messageData['text']);
 
@@ -120,6 +126,6 @@ class MessageController extends Controller
             Storage::put($filePath, json_encode($messageData));
         }
 
-        return view('read-message', ['message' => $decryptedText]);
+        return view('read-message', ['recipient' => $decryptedRecipient, 'message' => $decryptedText]);
     }
 }

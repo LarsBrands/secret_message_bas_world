@@ -8,6 +8,7 @@
         <p style="color: red;">{{ $error }}</p>
     @endif
     @if (isset($message))
+        <p><strong>Decrypted Recipient:</strong> {{ $recipient }}</p>
         <p><strong>Decrypted Message:</strong> {{ $message }}</p>
     @else
         <form action="/read" method="POST">
